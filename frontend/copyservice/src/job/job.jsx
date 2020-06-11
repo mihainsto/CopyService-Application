@@ -86,7 +86,7 @@ const Job = (props) => {
   return (
     <div className="job">
       <div className="jobContents">
-        <div className="text">JOB #1</div>
+        <div className="text">JOB #{props.id}</div>
         <div
           className="loader"
           style={{ paddingRight: getLoaderPadding(props.status) }}
