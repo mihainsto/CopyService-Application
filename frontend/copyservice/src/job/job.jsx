@@ -71,23 +71,26 @@ const IOSSwitch = withStyles((theme) => ({
 });
 
 const getLoaderStatus = (status) => {
-  if (status==="working"){
-    return true
+  if (status === "working") {
+    return true;
   }
-  return false
-}
+  return false;
+};
 const getLoaderPadding = (status) => {
-  if (status==="working"){
-    return 0
+  if (status === "working") {
+    return 0;
   }
-  return 60
-}
+  return 60;
+};
 const Job = (props) => {
   return (
     <div className="job">
       <div className="jobContents">
         <div className="text">JOB #1</div>
-        <div className="loader" style={{paddingRight: getLoaderPadding(props.status)}}>
+        <div
+          className="loader"
+          style={{ paddingRight: getLoaderPadding(props.status) }}
+        >
           <FadeLoader
             css={override}
             size={150}
@@ -103,11 +106,14 @@ const Job = (props) => {
           ></ProgressBar>
         </div>
         <div className="switch">
-          <IOSSwitch checked={props.switchChecked} onChange={props.onSwitchClick}></IOSSwitch>
+          <IOSSwitch
+            checked={props.switchChecked}
+            onChange={(value) => props.onSwitchClick(value, props.id, props.index)}
+          ></IOSSwitch>
         </div>
         <button
           className="btn"
-          onClick={(value) => props.onClickCancel(value, props.id)}
+          onClick={(value) => props.onClickCancel(value, props.id, props.index)}
         >
           {" "}
           Cancel
