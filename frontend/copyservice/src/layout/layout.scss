@@ -2,5 +2,39 @@
     .title{
         font-weight: 800;
         font-size: 40px;
+        margin-bottom: 30px;
+    }
+    .buttonContainer{
+        display:flex;
+
+        button{
+            margin-right: 50px;
+            height: 40px;
+            width: 300px;
+            background-color: #e5e6ec;
+            color: dimgray;
+            border: none;
+            border-radius: 15px;
+            box-shadow:
+             -3px -3px 10px 0 rgba(255, 255, 255, 0.5),
+             3px 3px 10px 0 rgba(0, 0, 0, 0.12);
+
+        }
+    }
+    .job:first-child{
+        margin-top: 0px;
+    }
+    .job{
+        margin-top: 40px;
+    }
+    .jobsContainer{
+        padding-top: 30px;
+        width: 1000px;
+        min-height: 400px;
+        margin-top: 15px;
+        border-radius: 15px;
+        box-shadow:
+        inset -3px -3px 10px 0 rgba(255, 255, 255, 0.3),
+        inset 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
     }
 }

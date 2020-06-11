@@ -3,6 +3,11 @@ body {
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e5e6ec;
+  color:dimgray;
+  left: 50%;
+  margin-left: -600px;
+  position: fixed;
 }
 
 code {

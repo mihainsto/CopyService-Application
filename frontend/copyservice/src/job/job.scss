@@ -1,0 +1,28 @@
+.job{
+    width: 85%;
+    margin-left: 7.5%;
+    height: 80px;
+    border-radius: 15px;
+    box-shadow:
+    -3px -3px 10px 0 rgba(255, 255, 255, 0.7),
+    3px 3px 10px 0 rgba(0, 0, 0, 0.12);
+
+    .jobContents{
+        display: flex;
+        
+        .text{
+            margin-top: 25px;
+            margin-left: 15px;
+        }
+        .loader{
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .progressbar{
+            margin-top: 40px;
+        }
+        
+    }
+    
+
+}
