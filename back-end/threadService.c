@@ -1,5 +1,13 @@
 #include "threadService.h"
 #include "IPC.h"
+
+// Cross-Platform library solution for sleep() function
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif 
+
 int copy(void* arg) {
     IPCmessageToDaemon* data = arg;
     char v[2][1024];
@@ -21,6 +29,7 @@ int copy(void* arg) {
     int chunks = 0;
     size_t were_read = read(source, buffer, 1024);
     while (were_read == 1024) {
+    	sleep(1);
         size_t dest = write(destination, buffer, 1024);
         if (dest == -1) {
             printf("Eroare la scrierea in fisier!");
