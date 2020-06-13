@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./layout.scss";
-
+import { alterCopyJob, createCopyJob, updateCopyJob } from "./api";
 import Job from "../job/job";
 
 const Layout = () => {
@@ -28,9 +28,15 @@ const Layout = () => {
 
     setJobs({ list: oldList });
   };
-  const inputChangedValue = (value, stateSet) =>{
-    stateSet(value.text)
-  }
+  const addJobClicked = () => {
+    console.log("add job clicked");
+    //alterCopyJob(1, jobs, setJobs, 80, "canceled")
+    //createCopyJob("Test", "test", jobs, setJobs);
+    //updateCopyJob(1, jobs, setJobs);
+  };
+  const inputChangedValue = (value, stateSet) => {
+    stateSet(value.text);
+  };
   return (
     <div className="layout">
       <div className="title">Copy Service</div>
@@ -52,7 +58,7 @@ const Layout = () => {
           value={pathTo}
           onChange={(value) => inputChangedValue(value, setPathTo)}
         />
-        <button>Add Copy Job</button>
+        <button onClick={addJobClicked}>Add Copy Job</button>
       </div>
       <div className="jobsContainer">
         {jobs.list.map((item, index) => (
