@@ -1,29 +1,38 @@
-from flask import Flask, request, json
+from flask import Flask, request
 from flask_cors import CORS
-import subprocess
+import os
+import json
+
+a  = os.popen('pwd').readlines()
+
 app = Flask(__name__)
 
 CORS(app)
 
 def copiere(from_,to):
-    output = subprocess.check_output(['./copy', 'from_' , 'to'])
+    output = os.popen('./client copy '+from_+' '+to).readlines()
     print(output)
+    return int(output[0])
 
-def status(id):
-    output = subprocess.check_output(['./status', 'id'])
+def statusCS(id):
+    output = os.popen('./client status '+id).readlines()
     print(output)
+    return output
 
 def stopeaza(id):
-    output = subprocess.check_output(['./status', 'id'])
+    output = os.popen('./client stop '+id).readlines()
     print(output)
+    return output
 
 def suspenda(id):
-    output = subprocess.check_output(['./status', 'id'])
+    output = os.popen('./client suspend '+id).readlines()
     print(output)
+    return output
 
 def resume1(id):
-    output = subprocess.check_output(['./status', 'id'])
+    output = os.popen('./client resume '+id).readlines()
     print(output)
+    return output
 
 
 
@@ -36,7 +45,12 @@ def copy():
         to = locatie['to']
         print(from_)
         print(to)
-        return copiere(from_,to)
+        to_return = {}
+        to_return['status'] = "OK"
+        to_return['id'] = copiere(from_,to)
+        print(to_return)
+      	
+        return json.dumps(to_return)
 
 
 @app.route('/status', methods=['POST'])
@@ -44,7 +58,10 @@ def status():
     if request.method == 'POST':
         number = json.loads(request.data)
         id = number['id']
-        return status(id)
+        to_return = {}
+        to_return['status'] = "OK"
+        to_return['data'] = statusCS(id)
+        return json.dumps(to_return)
 
 
 @app.route('/stop', methods=['POST'])
@@ -52,7 +69,11 @@ def stop():
     if request.method == 'POST':
         number = json.loads(request.data)
         id = number['id']
-        return stopeaza(id)
+        to_return = {}
+        to_return['status'] = "OK"
+        to_return['data'] = stopeaza(id)
+        
+        return json.dumps(to_return)
 
 
 @app.route('/suspend', methods=['POST'])
@@ -60,14 +81,20 @@ def suspend():
     if request.method == 'POST':
         number = json.loads(request.data)
         id = number['id']
-        return suspenda(id)
+        
+        to_return = {}
+        to_return['status'] = "OK"
+        to_return['data'] = suspenda(id)
+        return json.dumps(to_return)
 
 @app.route('/resume', methods=['POST'])
 def resume():
     if request.method == 'POST':
         number = json.loads(request.data)
-        id = number['id']
-        return resume1(id)
+        to_return = {}
+        to_return['status'] = "OK"
+        to_return['data'] = resume1(id)
+        return json.dumps(to_return)
 
 
 @app.route('/')
