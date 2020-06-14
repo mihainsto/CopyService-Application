@@ -20,7 +20,6 @@ int main(int argc, char* argv[])
         IPC_ClientSentMessage(client_message);
         IPCmessageToClient response = IPC_ClientReciveMessage();
         printf("%d\n", response.jobId);
-        printf("sent message");
     }
     else if (strcmp(client_message.task, "status") == 0)
     {
