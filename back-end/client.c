@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
         client_message.jobID = ID;
         IPC_ClientSentMessage(client_message);
         IPCmessageToClient response = IPC_ClientReciveMessage();
-        printf("%d\n", response.status);
+        printf("%f\n", response.status);
     }
     else if (strcmp(client_message.task, "stop") == 0)
     {

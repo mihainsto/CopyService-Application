@@ -27,10 +27,14 @@ int copy(void* arg) {
     char* buffer;
     buffer = malloc(1024);
     int chunks = 0;
+    printf("Successfully Opened file, now stating the coping.\n");
     size_t were_read = read(source, buffer, 1024);
     while (were_read == 1024) {
     	sleep(1);
+        pthread_mutex_lock(&stopMutex);
         size_t dest = write(destination, buffer, 1024);
+        pthread_mutex_unlock(&stopMutex);
+
         if (dest == -1) {
             printf("Eroare la scrierea in fisier!");
             return -1;
@@ -38,24 +42,31 @@ int copy(void* arg) {
 
         chunks++;
         struct stat sb;
+        stat(data->source, &sb);
         float p = (float)(chunks * 1024) / (long long)sb.st_size;
         if (p > 1)
             p = 1;
         pthread_mutex_lock(&progressMutex);
+        printf("Written chunks: %d\n", chunks);
+        printf("Coping job id: %d, the progress is: %f\n", data->jobID, p);
         progress[data->jobID] = p;
         pthread_mutex_unlock(&progressMutex);
 
+        pthread_mutex_lock(&stopMutex);
         were_read = read(source, buffer, 1024);
+        pthread_mutex_unlock(&stopMutex);
 
         while (1)
         {
             pthread_mutex_lock(&pauseMutex);
             if (pause_status[data->jobID] == 0)  //Nu a fost oprit 
             {
+                
                 pthread_mutex_unlock(&pauseMutex);
                 break;
             }
             pthread_mutex_unlock(&pauseMutex);
+            printf("Coping job id: %d, is paused. Waiting for resuming.\n", data->jobID);
             sleep(1);
         }
     }
@@ -74,16 +85,20 @@ int copy(void* arg) {
         }
 
     }
+    printf("DONE Coping job id: %d", data->jobID);
     pthread_mutex_lock(&mtx);
     threads[data->jobID] = 0;
     pthread_mutex_unlock(&mtx);
 }
 void stopThread(int index)
 {
+    pthread_mutex_lock(&stopMutex);
     pthread_mutex_lock(&mtx);
+    sleep(2);
     pthread_cancel(threads[index]);
     threads[index] = 0;
     pthread_mutex_unlock(&mtx);
+    pthread_mutex_unlock(&stopMutex);
 }
 // start a thread 
 int copyThread(IPCmessageToDaemon* client_message)
