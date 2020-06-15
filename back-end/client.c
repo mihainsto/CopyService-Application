@@ -47,5 +47,14 @@ int main(int argc, char* argv[])
         client_message.jobID = ID;
         IPC_ClientSentMessage(client_message);
     }
+    else if (strcmp(client_message.task, "getJobs") == 0){
+        IPC_ClientSentMessage(client_message);
+        IPCmessageToClient response = IPC_ClientReciveMessage();
+        int len = response.activeJobs[0];
+        for(int i = 0; i < len; ++i){
+            printf("%d\n", response.activeJobs[i + 1]);
+        }
+
+    }
     return 0;
 }
