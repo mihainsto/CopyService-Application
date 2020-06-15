@@ -13,7 +13,7 @@ void IPC_ClientSentMessage(IPCmessageToDaemon msg){
 	close(pipe);
 }
 
-IPCmessageToDaemon IPC_DaemonReciveMessage(){
+IPCmessageToDaemon* IPC_DaemonReciveMessage(){
 	int pipe;
 	IPCmessageToDaemon msg;
 
@@ -24,13 +24,14 @@ IPCmessageToDaemon IPC_DaemonReciveMessage(){
 	
 
 	close(pipe);
+	
 	IPCmessageToDaemon *cpy_msg = (IPCmessageToDaemon*)malloc(sizeof(IPCmessageToDaemon));
 	strcpy(cpy_msg->source, msg.source);
 	strcpy(cpy_msg->destination, msg.destination);
 	strcpy(cpy_msg->task, msg.task);
 	cpy_msg->jobID = msg.jobID;
 
-	return *cpy_msg;
+	return cpy_msg;
 }
 
 void IPC_DaemonSentMessage(IPCmessageToClient msg) {
