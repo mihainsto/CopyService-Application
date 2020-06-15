@@ -7,3 +7,6 @@ Our team:
 - George Pietrareanu 
 - Alexandru Tesileanu
 - Mihai Stoian
+
+Project Presentation:
+https://youtu.be/iX-Oo8TyesQ
