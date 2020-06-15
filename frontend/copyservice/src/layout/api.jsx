@@ -87,7 +87,11 @@ export const updateAllJobsFull = async (state, setState) => {
     let id = jobsAr[i];
     const response = await apiStatus(id);
     const json = await response.json();
-    const progress = parseInt(parseFloat(json.data) * 100); // TODO: API request
+    const progress = parseInt(parseFloat(json.data) * 100); 
+    if (progress > 90){
+        progress = 100
+        status = "Done"
+    }
     let jobIndex = findJobIndex(curentJobs.list, id);
     if (jobIndex === -1) {
       curentJobs.list.push({
