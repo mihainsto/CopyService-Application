@@ -7,12 +7,34 @@
 #else
 #include <unistd.h>
 #endif 
+   
+/*
+ * Check if a file exist using fopen() function
+ * return 1 if the file exist otherwise return 0
+ */
+int cfileexists(const char * filename){
+    /* try to open file to read */
+    FILE *file;
+    if (file = fopen(filename, "r")){
+        fclose(file);
+        return 1;
+    }
+    return 0;
+}
+
 
 int copy(void* arg) {
     IPCmessageToDaemon* data = arg;
     char v[2][1024];
     strcpy(v[0], data->source);
     strcpy(v[1], data->destination);
+
+    if(cfileexists(v[1])){
+        remove(v[1]);
+        printf("Another file with the same name as the dest existed, so it was deleted.\n" );
+    }
+
+
     FILE* source = open(v[0], O_RDONLY);
 
     if (source == -1) {
