@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 import "./layout.scss";
-import { alterCopyJob, createCopyJob, updateCopyJob } from "./api";
+import {
+  alterCopyJob,
+  createCopyJob,
+  updateCopyJob,
+  resumeCopyJob,
+  pauseCopyJob,
+  cancelCopyJob
+} from "./api";
 import Job from "../job/job";
 
 const Layout = () => {
   const [jobs, setJobs] = useState({
     list: [
-      { id: "1", progress: 60, status: "working", switchStatus: true },
-      { id: "2", progress: 100, status: "canceled", switchStatus: true },
-      { id: "3", progress: 30, status: "paused", switchStatus: true },
+      { id: "0", progress: 60, status: "working", switchStatus: true },
+      { id: "1", progress: 100, status: "canceled", switchStatus: true },
+      { id: "2", progress: 30, status: "paused", switchStatus: true },
     ],
   });
   const [switchStatus, setSwitchStatus] = useState("true");
   const [pathFrom, setPathFrom] = useState("");
   const [pathTo, setPathTo] = useState("");
   const cancelClicked = (value, id, index) => {
-    console.log(index);
+    cancelCopyJob(id);
   };
   const swichClicked = (value, id, index) => {
     setSwitchStatus(false);
@@ -24,14 +31,20 @@ const Layout = () => {
     const curent_status = oldList[index].switchStatus;
     if (curent_status === false) {
       oldList[index].switchStatus = true;
-    } else oldList[index].switchStatus = false;
+      oldList[index].status = "working";
+      resumeCopyJob(oldList[index].id);
+    } else {
+      oldList[index].switchStatus = false;
+      oldList[index].status = "paused";
+      pauseCopyJob(oldList[index].id);
+    }
 
     setJobs({ list: oldList });
   };
   const addJobClicked = () => {
     console.log("add job clicked");
+    createCopyJob("picFrom.png", "picTO.png", jobs, setJobs);
     //alterCopyJob(1, jobs, setJobs, 80, "canceled")
-    //createCopyJob("Test", "test", jobs, setJobs);
     //updateCopyJob(1, jobs, setJobs);
   };
   const inputChangedValue = (value, stateSet) => {
