@@ -1,29 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./layout.scss";
 import {
-  alterCopyJob,
   createCopyJob,
-  updateCopyJob,
   resumeCopyJob,
   pauseCopyJob,
-  cancelCopyJob
+  cancelCopyJob,
+  updateAllJobsFull,
 } from "./api";
 import Job from "../job/job";
-
 const Layout = () => {
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
+
+    // Remember the latest callback.
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    // Set up the interval.
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
+  useInterval(() => {
+    updateAllJobsFull(jobs, setJobs);
+  }, 1000);
+
   const [jobs, setJobs] = useState({
-    list: [
-      { id: "0", progress: 60, status: "working", switchStatus: true },
-      { id: "1", progress: 100, status: "canceled", switchStatus: true },
-      { id: "2", progress: 30, status: "paused", switchStatus: true },
-    ],
+    list: [],
   });
   const [switchStatus, setSwitchStatus] = useState("true");
   const [pathFrom, setPathFrom] = useState("");
   const [pathTo, setPathTo] = useState("");
+  const useForceUpdate = () => useState()[1];
+
   const cancelClicked = (value, id, index) => {
-    cancelCopyJob(id);
+    cancelCopyJob(id, jobs, setJobs);
   };
+
   const swichClicked = (value, id, index) => {
     setSwitchStatus(false);
     console.log(index);
@@ -42,13 +62,14 @@ const Layout = () => {
     setJobs({ list: oldList });
   };
   const addJobClicked = () => {
-    console.log("add job clicked");
-    createCopyJob("picFrom.png", "picTO.png", jobs, setJobs);
-    //alterCopyJob(1, jobs, setJobs, 80, "canceled")
-    //updateCopyJob(1, jobs, setJobs);
+    createCopyJob(pathFrom, pathTo, jobs, setJobs);
+
   };
-  const inputChangedValue = (value, stateSet) => {
-    stateSet(value.text);
+  const pathFromChangedValue = (value) => {
+    setPathFrom(document.getElementById("pathFrom").value);
+  };
+  const pathToChangedValue = (value) => {
+    setPathTo(document.getElementById("pathTo").value);
   };
   return (
     <div className="layout">
@@ -56,20 +77,22 @@ const Layout = () => {
       <div className="buttonContainer">
         {/*<button>Select Input File Path</button>*/}
         <input
+          id="pathFrom"
           type="text"
           class="form-control"
           placeholder="Input Path"
           value={pathFrom}
-          onChange={(value) => inputChangedValue(value, setPathFrom)}
+          onChange={pathFromChangedValue}
         />
 
         {/*<button>Select Output File Path</button>*/}
         <input
+          id="pathTo"
           type="text"
           class="form-control"
           placeholder="Output path"
           value={pathTo}
-          onChange={(value) => inputChangedValue(value, setPathTo)}
+          onChange={pathToChangedValue}
         />
         <button onClick={addJobClicked}>Add Copy Job</button>
       </div>
