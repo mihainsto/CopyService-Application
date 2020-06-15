@@ -47,6 +47,7 @@ typedef struct IPCmessageToDaemon {
 */
 typedef struct IPCmessageToClient {
 	int jobList[1024];
+	int activeJobs[1024];
 	int jobId;
 	float status;
 } IPCmessageToClient;

@@ -3,7 +3,10 @@
 
 
 int main() {
-    maxThreads = 2;
+    maxThreads = 4;
+
+    int currentJobs[1024];
+    int noCurentJobs = 0;
 
 
     while (1) {
@@ -15,6 +18,8 @@ int main() {
         {
             printf("Starting copy job!\n");
             int id = copyThread(client_message);
+            noCurentJobs ++;
+            currentJobs[noCurentJobs - 1] = id;
             sentmessage.jobId = id;
             printf("Successfully started copy job with id %d \n", id);
             IPC_DaemonSentMessage(sentmessage);
@@ -30,6 +35,15 @@ int main() {
         {
             printf("Requesting stop for job with id: %d \n", client_message->jobID);
             stopThread(client_message->jobID);
+            for (int i = 0; i < noCurentJobs; ++i){
+                if (currentJobs[i] == client_message->jobID){
+                    for(int k = i; k < noCurentJobs -1; ++k){
+                        currentJobs[k] = currentJobs[k+1];
+                    }
+                    noCurentJobs --;
+                    break;
+                }
+            }
         }
         else if (strcmp(client_message->task, "suspend") == 0)
         {
@@ -41,10 +55,25 @@ int main() {
             printf("Requesting resume for job with id: %d \n", client_message->jobID);
             resumeThread(client_message->jobID);
         }
-        /*printf("%s\n",client_message.task);
-        printf("%s\n", client_message.source);
-        printf("%s\n", client_message.destination);
-        printf("%d\n", client_message.jobID);*/
+        else if(strcmp(client_message->task, "getJobs") == 0){
+            printf("Requesting all running jobs \n");
+            for (int i = 0; i < noCurentJobs; ++i){
+                if(statusThread(currentJobs[i]) >= 0.95){ //Job is almost done, we can consider it finished
+                    for(int k = i; k < noCurentJobs -1; ++k){
+                        currentJobs[k] = currentJobs[k+1];
+                    }
+                    noCurentJobs--;
+                } 
+            }
+            printf("Will return %d jobs \n", noCurentJobs);
+            sentmessage.activeJobs[0] = noCurentJobs;
+            for (int i = 0; i<noCurentJobs; ++i){
+                sentmessage.activeJobs[i+1] = currentJobs[i];
+                printf("%d \n", sentmessage.activeJobs[i]);
+            }
+            IPC_DaemonSentMessage(sentmessage);
+
+        }
 
     }
     return 0;
