@@ -65,6 +65,11 @@ pthread_mutex_t pauseMutex;
 */
 pthread_mutex_t progressMutex;
 
+/*
+	\var stopMutex 
+	\breif This Mutex takes cake of the stopping of the job to prevent disk writing errors.
+*/
+pthread_mutex_t stopMutex;
 
 /* 	\fn void stopThread(int index)
 	\breif Stops a thread found at position index in threads array

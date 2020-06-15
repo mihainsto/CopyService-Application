@@ -68,7 +68,7 @@ void IPC_ClientSentMessage(IPCmessageToDaemon msg);
 	\returns The message from Deamon
 	\warning Use only in Daemon
 */
-IPCmessageToDaemon IPC_DaemonReciveMessage();
+IPCmessageToDaemon* IPC_DaemonReciveMessage();
 
 
 /*  \fn IPC_DaemonSentMessage(IPCmessageToClient msg)
