@@ -17,7 +17,7 @@ def copiere(from_,to):
 def statusCS(id):
     output = os.popen('./client status '+id).readlines()
     print(output)
-    return output
+    return output[0].replace("\n", "")
 
 def stopeaza(id):
     output = os.popen('./client stop '+id).readlines()
@@ -34,6 +34,11 @@ def resume1(id):
     print(output)
     return output
 
+def allJobsClient():
+    output = os.popen('./client getJobs').readlines()
+    print(output)
+    output = [x.replace('\n','') for x in output]
+    return output
 
 
 @app.route('/copy', methods=['POST'])
@@ -45,7 +50,10 @@ def copy():
         to = locatie['to']
         print(from_)
         print(to)
-        os.remove(to)
+        try:
+            os.remove(to)
+        except:
+            pass
         to_return = {}
         to_return['status'] = "OK"
         to_return['id'] = copiere(from_,to)
@@ -98,7 +106,16 @@ def resume():
         to_return['status'] = "OK"
         to_return['data'] = resume1(id)
         return json.dumps(to_return)
-
+        
+@app.route('/allJobs', methods=['POST'])
+def allJobs():
+    if request.method == 'POST':
+        allJobsClientAr = allJobsClient()
+        print(allJobsClient)
+        to_return = {}
+        to_return['status'] = "OK"
+        to_return['data'] = allJobsClientAr
+        return json.dumps(to_return)
 
 @app.route('/')
 def main():
