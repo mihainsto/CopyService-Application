@@ -63,7 +63,6 @@ const Layout = () => {
   };
   const addJobClicked = () => {
     createCopyJob(pathFrom, pathTo, jobs, setJobs);
-
   };
   const pathFromChangedValue = (value) => {
     setPathFrom(document.getElementById("pathFrom").value);
