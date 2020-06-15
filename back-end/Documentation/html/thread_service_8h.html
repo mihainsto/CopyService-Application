@@ -5,7 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<<<<<<< Updated upstream
 <title>Copy Service: C:/Users/teo/Documents/GitHub/CopyService-Application/back-end/threadService.h File Reference</title>
+=======
+<title>Copy Service: threadService.h File Reference</title>
+>>>>>>> Stashed changes
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,7 +69,11 @@ $(function() {
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
+<<<<<<< Updated upstream
 <div class="title">C:/Users/teo/Documents/GitHub/CopyService-Application/back-end/threadService.h File Reference</div>  </div>
+=======
+<div class="title">threadService.h File Reference</div>  </div>
+>>>>>>> Stashed changes
 </div><!--header-->
 <div class="contents">
 
@@ -103,6 +111,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<<<<<<< Updated upstream
 <tr class="memitem:a0d44e42f0f21c9681b7065c8a2f0cd9f"><td class="memItemLeft" align="right" valign="top"><a id="a0d44e42f0f21c9681b7065c8a2f0cd9f"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a0d44e42f0f21c9681b7065c8a2f0cd9f">threads</a> [1024]</td></tr>
 <tr class="memdesc:a0d44e42f0f21c9681b7065c8a2f0cd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of threads, used to store thee jobs on independent threads. <br /></td></tr>
@@ -134,6 +143,31 @@ pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="memitem:a27830876426f3f43f2581a8302edd941"><td class="memItemLeft" align="right" valign="top"><a id="a27830876426f3f43f2581a8302edd941"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a27830876426f3f43f2581a8302edd941">progressMutex</a></td></tr>
 <tr class="memdesc:a27830876426f3f43f2581a8302edd941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex ffor the progress jobs. <br /></td></tr>
+=======
+<tr class="memitem:a0d44e42f0f21c9681b7065c8a2f0cd9f"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a0d44e42f0f21c9681b7065c8a2f0cd9f">threads</a> [1024]</td></tr>
+<tr class="memdesc:a0d44e42f0f21c9681b7065c8a2f0cd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of threads, used to store thee jobs on independent threads.  <a href="thread_service_8h.html#a0d44e42f0f21c9681b7065c8a2f0cd9f">More...</a><br /></td></tr>
+<tr class="separator:a0d44e42f0f21c9681b7065c8a2f0cd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6621c9c33532eb4332e60ecb5730c6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#ad6621c9c33532eb4332e60ecb5730c6f">maxThreads</a></td></tr>
+<tr class="memdesc:ad6621c9c33532eb4332e60ecb5730c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of threads that can run in the same time. Configurabile.  <a href="thread_service_8h.html#ad6621c9c33532eb4332e60ecb5730c6f">More...</a><br /></td></tr>
+<tr class="separator:ad6621c9c33532eb4332e60ecb5730c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae350baaa496f034d83f30054141c6e3a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#ae350baaa496f034d83f30054141c6e3a">pause_status</a> [1024]</td></tr>
+<tr class="memdesc:ae350baaa496f034d83f30054141c6e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of ints that store the status of the thread (running/paused/stopped).  <a href="thread_service_8h.html#ae350baaa496f034d83f30054141c6e3a">More...</a><br /></td></tr>
+<tr class="separator:ae350baaa496f034d83f30054141c6e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a345bc9180a33603d45eba7374a64c986"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a345bc9180a33603d45eba7374a64c986">progress</a> [1024]</td></tr>
+<tr class="memdesc:a345bc9180a33603d45eba7374a64c986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of floats that store the progress of the thread (from 0=no progress to 1=done)  <a href="thread_service_8h.html#a345bc9180a33603d45eba7374a64c986">More...</a><br /></td></tr>
+<tr class="separator:a345bc9180a33603d45eba7374a64c986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2680f9fe5653a596c7e779b838180fdc"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a2680f9fe5653a596c7e779b838180fdc">mtx</a></td></tr>
+<tr class="memdesc:a2680f9fe5653a596c7e779b838180fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">General mutex, for all type of jobs.  <a href="thread_service_8h.html#a2680f9fe5653a596c7e779b838180fdc">More...</a><br /></td></tr>
+<tr class="separator:a2680f9fe5653a596c7e779b838180fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f18c874fa02017c26b97d94415d6002"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a6f18c874fa02017c26b97d94415d6002">copyThreadMutex</a></td></tr>
+<tr class="memdesc:a6f18c874fa02017c26b97d94415d6002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for the copy jobs.  <a href="thread_service_8h.html#a6f18c874fa02017c26b97d94415d6002">More...</a><br /></td></tr>
+<tr class="separator:a6f18c874fa02017c26b97d94415d6002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66fb7085b92ca2d2f1bb1413c5639b51"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a66fb7085b92ca2d2f1bb1413c5639b51">pauseMutex</a></td></tr>
+<tr class="memdesc:a66fb7085b92ca2d2f1bb1413c5639b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex got the pause jobs.  <a href="thread_service_8h.html#a66fb7085b92ca2d2f1bb1413c5639b51">More...</a><br /></td></tr>
+<tr class="separator:a66fb7085b92ca2d2f1bb1413c5639b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27830876426f3f43f2581a8302edd941"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread_service_8h.html#a27830876426f3f43f2581a8302edd941">progressMutex</a></td></tr>
+<tr class="memdesc:a27830876426f3f43f2581a8302edd941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex ffor the progress jobs.  <a href="thread_service_8h.html#a27830876426f3f43f2581a8302edd941">More...</a><br /></td></tr>
+>>>>>>> Stashed changes
 <tr class="separator:a27830876426f3f43f2581a8302edd941"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -275,6 +309,138 @@ pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 
 </div>
 </div>
+<<<<<<< Updated upstream
+=======
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a6f18c874fa02017c26b97d94415d6002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f18c874fa02017c26b97d94415d6002">&#9670;&nbsp;</a></span>copyThreadMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_mutex_t copyThreadMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutex for the copy jobs. </p>
+
+</div>
+</div>
+<a id="ad6621c9c33532eb4332e60ecb5730c6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6621c9c33532eb4332e60ecb5730c6f">&#9670;&nbsp;</a></span>maxThreads</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int maxThreads</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The maximum number of threads that can run in the same time. Configurabile. </p>
+
+</div>
+</div>
+<a id="a2680f9fe5653a596c7e779b838180fdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2680f9fe5653a596c7e779b838180fdc">&#9670;&nbsp;</a></span>mtx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_mutex_t mtx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>General mutex, for all type of jobs. </p>
+
+</div>
+</div>
+<a id="ae350baaa496f034d83f30054141c6e3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae350baaa496f034d83f30054141c6e3a">&#9670;&nbsp;</a></span>pause_status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int pause_status[1024]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Array of ints that store the status of the thread (running/paused/stopped). </p>
+
+</div>
+</div>
+<a id="a66fb7085b92ca2d2f1bb1413c5639b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66fb7085b92ca2d2f1bb1413c5639b51">&#9670;&nbsp;</a></span>pauseMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_mutex_t pauseMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutex got the pause jobs. </p>
+
+</div>
+</div>
+<a id="a345bc9180a33603d45eba7374a64c986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a345bc9180a33603d45eba7374a64c986">&#9670;&nbsp;</a></span>progress</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float progress[1024]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Array of floats that store the progress of the thread (from 0=no progress to 1=done) </p>
+
+</div>
+</div>
+<a id="a27830876426f3f43f2581a8302edd941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27830876426f3f43f2581a8302edd941">&#9670;&nbsp;</a></span>progressMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">phtread_mutex_t progressMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutex ffor the progress jobs. </p>
+
+</div>
+</div>
+<a id="a0d44e42f0f21c9681b7065c8a2f0cd9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d44e42f0f21c9681b7065c8a2f0cd9f">&#9670;&nbsp;</a></span>threads</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_t threads[1024]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Array of threads, used to store thee jobs on independent threads. </p>
+
+</div>
+</div>
+>>>>>>> Stashed changes
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

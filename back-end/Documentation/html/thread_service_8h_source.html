@@ -5,7 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<<<<<<< Updated upstream
 <title>Copy Service: C:/Users/teo/Documents/GitHub/CopyService-Application/back-end/threadService.h Source File</title>
+=======
+<title>Copy Service: threadService.h Source File</title>
+>>>>>>> Stashed changes
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +66,11 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
+<<<<<<< Updated upstream
 <div class="title">C:/Users/teo/Documents/GitHub/CopyService-Application/back-end/threadService.h</div>  </div>
+=======
+<div class="title">threadService.h</div>  </div>
+>>>>>>> Stashed changes
 </div><!--header-->
 <div class="contents">
 <a href="thread_service_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -117,19 +125,32 @@ $(function() {
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">void</span> <a class="code" href="thread_service_8h.html#ae174ba56082c30c0899667e200556aad">resumeThread</a>(<span class="keywordtype">int</span> jobID);</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="athread_service_8h_html_ad6621c9c33532eb4332e60ecb5730c6f"><div class="ttname"><a href="thread_service_8h.html#ad6621c9c33532eb4332e60ecb5730c6f">maxThreads</a></div><div class="ttdeci">int maxThreads</div><div class="ttdoc">The maximum number of threads that can run in the same time. Configurabile.</div><div class="ttdef"><b>Definition:</b> threadService.h:29</div></div>
+<<<<<<< Updated upstream
 <div class="ttc" id="athread_service_8h_html_a1cdf7c9fb54025e484669e9bfc144f1c"><div class="ttname"><a href="thread_service_8h.html#a1cdf7c9fb54025e484669e9bfc144f1c">statusThread</a></div><div class="ttdeci">float statusThread(int jobID)</div><div class="ttdoc">Gets the progress of a job.</div><div class="ttdef"><b>Definition:</b> threadService.c:140</div></div>
+=======
+<div class="ttc" id="athread_service_8h_html_a1cdf7c9fb54025e484669e9bfc144f1c"><div class="ttname"><a href="thread_service_8h.html#a1cdf7c9fb54025e484669e9bfc144f1c">statusThread</a></div><div class="ttdeci">float statusThread(int jobID)</div><div class="ttdoc">Gets the progress of a job.</div><div class="ttdef"><b>Definition:</b> threadService.c:155</div></div>
+>>>>>>> Stashed changes
 <div class="ttc" id="athread_service_8h_html_a345bc9180a33603d45eba7374a64c986"><div class="ttname"><a href="thread_service_8h.html#a345bc9180a33603d45eba7374a64c986">progress</a></div><div class="ttdeci">float progress[1024]</div><div class="ttdoc">Array of floats that store the progress of the thread (from 0=no progress to 1=done)</div><div class="ttdef"><b>Definition:</b> threadService.h:41</div></div>
 <div class="ttc" id="athread_service_8h_html_a66fb7085b92ca2d2f1bb1413c5639b51"><div class="ttname"><a href="thread_service_8h.html#a66fb7085b92ca2d2f1bb1413c5639b51">pauseMutex</a></div><div class="ttdeci">pthread_mutex_t pauseMutex</div><div class="ttdoc">Mutex got the pause jobs.</div><div class="ttdef"><b>Definition:</b> threadService.h:59</div></div>
 <div class="ttc" id="astruct_i_p_cmessage_to_daemon_html"><div class="ttname"><a href="struct_i_p_cmessage_to_daemon.html">IPCmessageToDaemon</a></div><div class="ttdoc">Struct contains the source, destination, the task and the type of job.</div><div class="ttdef"><b>Definition:</b> IPC.h:32</div></div>
 <div class="ttc" id="athread_service_8h_html_ae350baaa496f034d83f30054141c6e3a"><div class="ttname"><a href="thread_service_8h.html#ae350baaa496f034d83f30054141c6e3a">pause_status</a></div><div class="ttdeci">int pause_status[1024]</div><div class="ttdoc">Array of ints that store the status of the thread (running/paused/stopped).</div><div class="ttdef"><b>Definition:</b> threadService.h:35</div></div>
 <div class="ttc" id="a_i_p_c_8h_html"><div class="ttname"><a href="_i_p_c_8h.html">IPC.h</a></div><div class="ttdoc">Inter Process Communication Library.</div></div>
 <div class="ttc" id="athread_service_8h_html_a2680f9fe5653a596c7e779b838180fdc"><div class="ttname"><a href="thread_service_8h.html#a2680f9fe5653a596c7e779b838180fdc">mtx</a></div><div class="ttdeci">pthread_mutex_t mtx</div><div class="ttdoc">General mutex, for all type of jobs.</div><div class="ttdef"><b>Definition:</b> threadService.h:47</div></div>
+<<<<<<< Updated upstream
 <div class="ttc" id="athread_service_8h_html_abbb78620392a024017d04ada462a4ad6"><div class="ttname"><a href="thread_service_8h.html#abbb78620392a024017d04ada462a4ad6">copyThread</a></div><div class="ttdeci">int copyThread(IPCmessageToDaemon *client_message)</div><div class="ttdoc">Starts a new copy job on a new thread;.</div><div class="ttdef"><b>Definition:</b> threadService.c:89</div></div>
 <div class="ttc" id="athread_service_8h_html_a6f18c874fa02017c26b97d94415d6002"><div class="ttname"><a href="thread_service_8h.html#a6f18c874fa02017c26b97d94415d6002">copyThreadMutex</a></div><div class="ttdeci">pthread_mutex_t copyThreadMutex</div><div class="ttdoc">Mutex for the copy jobs.</div><div class="ttdef"><b>Definition:</b> threadService.h:53</div></div>
 <div class="ttc" id="athread_service_8h_html_a27830876426f3f43f2581a8302edd941"><div class="ttname"><a href="thread_service_8h.html#a27830876426f3f43f2581a8302edd941">progressMutex</a></div><div class="ttdeci">pthread_mutex_t progressMutex</div><div class="ttdoc">Mutex ffor the progress jobs.</div><div class="ttdef"><b>Definition:</b> threadService.h:66</div></div>
 <div class="ttc" id="athread_service_8h_html_a20ce9b1ac09bc75f6427d96dbcdc70ba"><div class="ttname"><a href="thread_service_8h.html#a20ce9b1ac09bc75f6427d96dbcdc70ba">pauseThread</a></div><div class="ttdeci">void pauseThread(int jobID)</div><div class="ttdoc">Pauses a thread with the idex / jobID.</div><div class="ttdef"><b>Definition:</b> threadService.c:148</div></div>
 <div class="ttc" id="athread_service_8h_html_ae174ba56082c30c0899667e200556aad"><div class="ttname"><a href="thread_service_8h.html#ae174ba56082c30c0899667e200556aad">resumeThread</a></div><div class="ttdeci">void resumeThread(int jobID)</div><div class="ttdoc">Resumes a job that has been paused.</div><div class="ttdef"><b>Definition:</b> threadService.c:155</div></div>
 <div class="ttc" id="athread_service_8h_html_a76d251d436fc33b4abac45174368888a"><div class="ttname"><a href="thread_service_8h.html#a76d251d436fc33b4abac45174368888a">stopThread</a></div><div class="ttdeci">void stopThread(int index)</div><div class="ttdoc">Stops a thread found at position index in threads array.</div><div class="ttdef"><b>Definition:</b> threadService.c:81</div></div>
+=======
+<div class="ttc" id="athread_service_8h_html_abbb78620392a024017d04ada462a4ad6"><div class="ttname"><a href="thread_service_8h.html#abbb78620392a024017d04ada462a4ad6">copyThread</a></div><div class="ttdeci">int copyThread(IPCmessageToDaemon *client_message)</div><div class="ttdoc">Starts a new copy job on a new thread;.</div><div class="ttdef"><b>Definition:</b> threadService.c:104</div></div>
+<div class="ttc" id="athread_service_8h_html_a6f18c874fa02017c26b97d94415d6002"><div class="ttname"><a href="thread_service_8h.html#a6f18c874fa02017c26b97d94415d6002">copyThreadMutex</a></div><div class="ttdeci">pthread_mutex_t copyThreadMutex</div><div class="ttdoc">Mutex for the copy jobs.</div><div class="ttdef"><b>Definition:</b> threadService.h:53</div></div>
+<div class="ttc" id="athread_service_8h_html_a27830876426f3f43f2581a8302edd941"><div class="ttname"><a href="thread_service_8h.html#a27830876426f3f43f2581a8302edd941">progressMutex</a></div><div class="ttdeci">pthread_mutex_t progressMutex</div><div class="ttdoc">Mutex ffor the progress jobs.</div><div class="ttdef"><b>Definition:</b> threadService.h:66</div></div>
+<div class="ttc" id="athread_service_8h_html_a20ce9b1ac09bc75f6427d96dbcdc70ba"><div class="ttname"><a href="thread_service_8h.html#a20ce9b1ac09bc75f6427d96dbcdc70ba">pauseThread</a></div><div class="ttdeci">void pauseThread(int jobID)</div><div class="ttdoc">Pauses a thread with the idex / jobID.</div><div class="ttdef"><b>Definition:</b> threadService.c:163</div></div>
+<div class="ttc" id="athread_service_8h_html_ae174ba56082c30c0899667e200556aad"><div class="ttname"><a href="thread_service_8h.html#ae174ba56082c30c0899667e200556aad">resumeThread</a></div><div class="ttdeci">void resumeThread(int jobID)</div><div class="ttdoc">Resumes a job that has been paused.</div><div class="ttdef"><b>Definition:</b> threadService.c:170</div></div>
+<div class="ttc" id="athread_service_8h_html_a76d251d436fc33b4abac45174368888a"><div class="ttname"><a href="thread_service_8h.html#a76d251d436fc33b4abac45174368888a">stopThread</a></div><div class="ttdeci">void stopThread(int index)</div><div class="ttdoc">Stops a thread found at position index in threads array.</div><div class="ttdef"><b>Definition:</b> threadService.c:93</div></div>
+>>>>>>> Stashed changes
 <div class="ttc" id="athread_service_8h_html_a0d44e42f0f21c9681b7065c8a2f0cd9f"><div class="ttname"><a href="thread_service_8h.html#a0d44e42f0f21c9681b7065c8a2f0cd9f">threads</a></div><div class="ttdeci">pthread_t threads[1024]</div><div class="ttdoc">Array of threads, used to store thee jobs on independent threads.</div><div class="ttdef"><b>Definition:</b> threadService.h:23</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
