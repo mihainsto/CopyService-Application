@@ -45,6 +45,7 @@ def copy():
         to = locatie['to']
         print(from_)
         print(to)
+        os.remove(to)
         to_return = {}
         to_return['status'] = "OK"
         to_return['id'] = copiere(from_,to)
@@ -80,6 +81,7 @@ def stop():
 def suspend():
     if request.method == 'POST':
         number = json.loads(request.data)
+        print(number)
         id = number['id']
         
         to_return = {}
@@ -91,6 +93,7 @@ def suspend():
 def resume():
     if request.method == 'POST':
         number = json.loads(request.data)
+        id = number['id']
         to_return = {}
         to_return['status'] = "OK"
         to_return['data'] = resume1(id)
