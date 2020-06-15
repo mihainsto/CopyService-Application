@@ -21,7 +21,7 @@
 	@param destination Char array with len of 1024, contains the destination to where it should copy.
 	@param task Char array with len of 1024, tells the deamon what job it should accomplish:
 						-"copy" = tells the deamon to start a copy tipe job
-						-"status" = gets the status of a curent job
+						-"status" = gets the status of a current job
 						-"stop" = stops a job
 						-"suspent" = pauses / suspends a job
 						-"resume" = resumes a job
@@ -40,7 +40,7 @@ typedef struct IPCmessageToDaemon {
 
 	/**
 	\struct IPCmessageToClient
-	@brief Struct contains the id of the curent job, the status and a list of other jobs.
+	@brief Struct contains the id of the current job, the status and a list of other jobs.
 	@param jobList Integer arrray with len of 1024.
 	@param jobId  Integer, tells us the id / thread id.
 	@param status Float, the status of the current job. 
@@ -66,8 +66,8 @@ void IPC_ClientSentMessage(IPCmessageToDaemon msg);
 	\fn IPC_DaemonReceiveMessage()
 	@brief Receive the IPCmessageToDaemon struct
 	@param None
-	\returns The message from Deamon
-	\warning Use only in Daemon
+	@returns The message from Deamon
+	@warning Use only in Daemon
 */
 IPCmessageToDaemon IPC_DaemonReceiveMessage();
 
@@ -84,8 +84,8 @@ void IPC_DaemonSentMessage(IPCmessageToClient msg);
 /**	\fn IPCmessageToClient IPC_ClientReceiveMessage()
 	@brief Receive the IPCmessageToClient struct
 	@param None
-	\returns The message from Client
-	\Warning Use only in Clients
+	@returns The message from Client
+	@warning Use only in Clients
 */
 IPCmessageToClient IPC_ClientReceiveMessage();
 

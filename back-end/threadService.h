@@ -61,7 +61,7 @@ pthread_mutex_t pauseMutex;
 
 
 /**	\var phtread_mutex_t progressMutex
-	@brief Mutex ffor the progress jobs
+	@brief Mutex for the jobs progress
 */
 pthread_mutex_t progressMutex;
 
